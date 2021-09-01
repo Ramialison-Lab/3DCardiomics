@@ -59,7 +59,7 @@ public class Colour : MonoBehaviour
 
     public static int valuesCount = 0;
 
-    public string csvFilenameBase= "log2CPM";
+    public string csvFilenameBase= "fake_mouse_expression_data";
 
     private float maxValue;
     private static string currentGene = "";
@@ -98,7 +98,7 @@ public class Colour : MonoBehaviour
     // Run on initial load
     void Start()
     {
-        //GameObject.Find("ScriptHolder").GetComponent<CSVConverter>().setCSVFile(csvFilenameBase);
+        GameObject.Find("ScriptHolder").GetComponent<CSVConverter>().testForConvert(csvFilenameBase);
         // cache the array of all mouse gene names
         // allGeneNames = ValidGeneNames.names; // GetValidGeneNames();
         var _initValidGeneNamesAsync = StartCoroutine(InitValidGeneNames());
@@ -160,9 +160,9 @@ public class Colour : MonoBehaviour
     public void LoadDatasetFORWEBPLAYER()
     {
 #if USE_REAL_DATA
-        var csvFilenameBase = "log2PCM";
+        var csvFilenameBase = "fernP2_real";
 #else
-        var csvFilenameBase = "log2PCM";
+        //var csvFilenameBase = "fake_mouse_expression_data";
 #endif
         TextAsset textAsset = Resources.Load(csvFilenameBase) as TextAsset; //string input =  result.text;
         string[] wArray = textAsset.text.Split("\n"[0]);
