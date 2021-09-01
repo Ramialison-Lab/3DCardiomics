@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class CSVConverter : MonoBehaviour
 {
-    public void testForConvert(string csvName)
+
+    private string csvFile;
+    public void ConvertCSV()
     {
 
+    }
+
+    public void setCSVFile(string csvName)
+    {
+        csvFile = csvName;
     }
 }
