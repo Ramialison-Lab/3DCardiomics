@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\PanelScript.cs" />
     <Compile Include="Assets\Scripts\PressHandler.cs" />
     <Compile Include="Assets\Scripts\Selection.cs" />
+    <Compile Include="Assets\Scripts\Tooltip.cs" />
     <None Include="Assets\Resources\genesets\cluster_13.txt" />
     <None Include="Assets\Resources\genesets\geneset.txt" />
     <None Include="Assets\Resources\genesets\cluster_9.txt" />

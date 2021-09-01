@@ -13,7 +13,6 @@ using System.Linq;
  * Arranges for the colouring of the heart due to the gene selected, also controls colour blind modes and computing Pearson correlations
  * 
  *****/
-
 public class Colour : MonoBehaviour
 {
     [DllImport("__Internal")]
@@ -421,13 +420,13 @@ public class Colour : MonoBehaviour
             }
 
 #if UNITY_EDITOR
-            Debug.Log("geneName, geneIndex: " + geneName + ", " + geneIndex);
+            //Debug.Log("geneName, geneIndex: " + geneName + ", " + geneIndex);
 #endif
 
 #if UNITY_EDITOR
             for (int i = 0; i < 18; i++)
             {
-                Debug.Log("Gene: " + geneName + ", Piece " + i.ToString() + ", Value: " + expressionForGene[i].ToString());
+               // Debug.Log("Gene: " + geneName + ", Piece " + i.ToString() + ", Value: " + expressionForGene[i].ToString());
             }
 #endif
             // sum
@@ -647,6 +646,8 @@ public class Colour : MonoBehaviour
         g.SetKeys(gck, new GradientAlphaKey[0]); // Make all colours visible
 
         // Associate a decimal with a colour and change the heart piece
+        GameObject.Find("ScriptHolder").GetComponent<Tooltip>().storeValues(heartPiece, exp, lMax, lMin);
+        
         GameObject.Find(heartPiece).GetComponent<Renderer>().material.color = g.Evaluate(t);
 
     }
