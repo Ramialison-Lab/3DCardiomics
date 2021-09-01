@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\Colour.cs" />
     <Compile Include="Assets\Scripts\Compare.cs" />
+    <Compile Include="Assets\Scripts\CSVConverter.cs" />
     <Compile Include="Assets\Scripts\dPanel.cs" />
     <Compile Include="Assets\Scripts\Explode.cs" />
     <Compile Include="Assets\Scripts\FileUpload.cs" />

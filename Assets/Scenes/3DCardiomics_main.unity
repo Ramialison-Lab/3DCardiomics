@@ -2798,6 +2798,7 @@ GameObject:
   - component: {fileID: 530951955}
   - component: {fileID: 530951956}
   - component: {fileID: 530951957}
+  - component: {fileID: 530951958}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -2817,6 +2818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e16fbc1a47564c329fbcfde579b3ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  csvFilenameBase: fake_mouse_expression_data
   IF: {fileID: 1086554152}
   content: {fileID: 1078107848}
   eyeButton: {fileID: 667990802}
@@ -2881,6 +2883,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5881523e2a9e3884197b00664acfafd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &530951958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530951952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc7ba51394ad66418d240674be99727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &544448911
@@ -9120,17 +9134,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106779955}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 671555545}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -409, y: 243}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 274.5}
+  m_SizeDelta: {x: 0, y: 549}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106779957
 MonoBehaviour:
@@ -9157,7 +9171,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
