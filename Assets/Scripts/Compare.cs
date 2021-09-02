@@ -188,7 +188,12 @@ public class Compare : MonoBehaviour
 
         Debug.Log(pieceString);
 
+        Debug.Log(url);
         WWW result = new WWW(url);
+
+        //var result = new UnityWebRequest(url);
+
+        //result.downloadHandler = new DownloadHandlerBuffer();
 
         System.Collections.IEnumerator sp = spin();
         StartCoroutine(sp);
@@ -203,19 +208,21 @@ public class Compare : MonoBehaviour
         {
 
             yield return new WaitForSeconds(2.0f);
-
             result = new WWW(url);
+            //result = new UnityWebRequest(url);
             yield return result;
 
             contrasts = result.text;
+            Debug.Log(contrasts);
             count += 1;
+
         }
 
         // Now let's process the contrasts data
 #if UNITY_EDITOR
         Debug.Log(contrasts.Length);
 #endif
-
+        
         if (contrasts.Length != 33)
         {
 

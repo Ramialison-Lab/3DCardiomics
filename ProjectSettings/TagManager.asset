@@ -9,6 +9,7 @@ TagManager:
   - more
   - cloneC
   - moreC
+  - slice
   layers:
   - Default
   - TransparentFX

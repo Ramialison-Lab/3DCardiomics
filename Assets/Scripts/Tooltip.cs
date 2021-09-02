@@ -7,8 +7,10 @@ public class Tooltip : MonoBehaviour
 {
     private Hashtable table = new Hashtable();
     private Text selectionText;
-    private float value;
-    private float mean = 0;
+    private float absolute;
+    private float lMin = 15;
+    private float lMax = 0;
+
 
     public static string[] hp = new string[18] {
         "A_1", "A_2", "A_3", "A_4",
@@ -24,10 +26,10 @@ public class Tooltip : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        calculateMean(gameObject);
-        //string s = gameObject.name + " " + value + " " + mean;
-        float avg = value / mean;
-        string s = "Selected Slice: " + gameObject.name + ": Expression value (log2PCM)= " + value.ToString("0.00") + "; \n Realtive expression vs. average of remaining sections = " + avg.ToString("0.00");
+        findMin();
+        findMax();
+        float t = (absolute - lMin) / (lMax - lMin);
+        string s = "Expression value (log2CPM)= " + absolute.ToString("0.00") + "; \n Relative expression = " + t.ToString("0.00");
         selectionText.text = s;
     }
 
@@ -36,34 +38,55 @@ public class Tooltip : MonoBehaviour
         selectionText.text = "";
     }
 
-    public void storeValues(string hp, float exp, float Max, float Min)
+    public void storeValues(string hp, float abs)
     {
         // SH only
         //float x = exp / Max;
-        GameObject.Find(hp).GetComponent<Tooltip>().setValue(exp);
+        GameObject.Find(hp).GetComponent<Tooltip>().setValues(abs);
     }
 
-    public void setValue(float value)
+    public void setValues(float abs)
     {
-        this.value = value;
+        this.absolute = abs;
     }
-    private void calculateMean(GameObject obj)
+
+    private void findMin()
     {
-        float sum = 0;
-        for (int i = 0; i < 18; i++)
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("slice");
+
+        foreach(GameObject go in gameObjects)
         {
-           if( GameObject.Find(hp[i]).name != obj.name)
+            if (lMin > go.GetComponent<Tooltip>().getExp())
             {
-                sum = sum + GameObject.Find(hp[i]).GetComponent<Tooltip>().getValue();
-                mean = sum/ 17;
+                lMin = go.GetComponent<Tooltip>().getExp();
             }
+
         }
-            
-
     }
 
-    public float getValue()
+    private void findMax()
     {
-        return value;
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("slice");
+
+        foreach (GameObject go in gameObjects)
+        {
+            if (lMax < go.GetComponent<Tooltip>().getExp())
+            {
+                lMax = go.GetComponent<Tooltip>().getExp();
+            }
+
+        }
     }
+
+    public float getExp()
+    {
+        return absolute;
+    }
+
+    public void Reset()
+    {
+        lMin = 15;
+        lMax = 0;
+    }
+
 }

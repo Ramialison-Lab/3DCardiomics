@@ -59,7 +59,7 @@ public class Colour : MonoBehaviour
 
     public static int valuesCount = 0;
 
-    public string csvFilenameBase= "fake_mouse_expression_data";
+    public string csvFilenameBase;
 
     private float maxValue;
     private static string currentGene = "";
@@ -114,7 +114,7 @@ public class Colour : MonoBehaviour
         // For testing gene set display in Unity Editor
 #if UNITY_EDITOR
         var fileUpload = GameObject.Find("ScriptHolder").GetComponent<FileUpload>();
-        fileUpload.ShowPresetGeneSet("cluster_1");
+        //fileUpload.ShowPresetGeneSet("cluster_1");
 #endif
     }
 
@@ -160,9 +160,9 @@ public class Colour : MonoBehaviour
     public void LoadDatasetFORWEBPLAYER()
     {
 #if USE_REAL_DATA
-        var csvFilenameBase = "fernP2_real";
+        var csvFilenameBase = "log2PCM";
 #else
-        //var csvFilenameBase = "fake_mouse_expression_data";
+        var csvFilenameBase = "log2PCM";
 #endif
         TextAsset textAsset = Resources.Load(csvFilenameBase) as TextAsset; //string input =  result.text;
         string[] wArray = textAsset.text.Split("\n"[0]);
@@ -327,6 +327,14 @@ public class Colour : MonoBehaviour
             gText.text = "Current gene: " + SentenceCase(geneName);
             SetGeneSetLabels("", "");
 
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("slice");
+
+            foreach (GameObject go in gameObjects)
+            {
+                go.GetComponent<Tooltip>().Reset();
+
+            }
+
             float lMax = -1;
             float lMin = 100;
             if (norm)
@@ -471,6 +479,14 @@ public class Colour : MonoBehaviour
         // apply average colours to model
         maxValue = averageValues.Max();
         var minValue = averageValues.Min();
+
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("slice");
+
+        foreach (GameObject go in gameObjects)
+        {
+            go.GetComponent<Tooltip>().Reset();
+
+        }
         // norm = true;
         for (int i = 0; i < 18; i++)
         {
@@ -600,7 +616,6 @@ public class Colour : MonoBehaviour
         // Declare variables
         float rgb = 255;
         float t;
-
         // Convert value to a number between 0 and 1
         if (norm)
         {
@@ -650,10 +665,10 @@ public class Colour : MonoBehaviour
         g.SetKeys(gck, new GradientAlphaKey[0]); // Make all colours visible
 
         // Associate a decimal with a colour and change the heart piece
-        GameObject.Find("ScriptHolder").GetComponent<Tooltip>().storeValues(heartPiece, exp, lMax, lMin);
+
+        GameObject.Find("ScriptHolder").GetComponent<Tooltip>().storeValues(heartPiece, exp);
         
         GameObject.Find(heartPiece).GetComponent<Renderer>().material.color = g.Evaluate(t);
-
     }
 
 

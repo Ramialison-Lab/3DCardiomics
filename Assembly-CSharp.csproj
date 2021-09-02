@@ -87,6 +87,7 @@
     <None Include="Assets\Resources\genesets\cluster_10.txt" />
     <None Include="Assets\Resources\genesets\cluster_12.txt" />
     <None Include="Assets\Resources\genesets\cluster_5.txt" />
+    <None Include="Assets\Resources\log2PCM.txt" />
     <None Include="Assets\Resources\valid_gene_names.txt" />
     <None Include="Assets\Resources\GENE-DESCRIPTION-TSV_MGI_9.tsv.txt" />
     <None Include="Assets\Resources\genesets\cluster_2.txt" />
