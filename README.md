@@ -11,7 +11,7 @@
 - Unity (we are using 2018.4.23.f1)
 - Any modern web browser which is WebGL capable
 
-### Instructions
+### <a name="instructions"> Instructions </a>
 Simply run unity and open the root folder of the project. If the heart scene is not visible, open it in unity by browsing to and double clicking the following file:
 ```
 Assets/3DCardiomics_main.unity
@@ -19,7 +19,7 @@ Assets/3DCardiomics_main.unity
 
 ### Upload expression values
 
-3D-cardiomics supports displaying of user provided expression values on your local machine. Therefore, first follow the **Instructions** to run 3D-Cardiomics on your local machine.
+3D-cardiomics supports displaying of user provided expression values on your local machine. Therefore, first follow the **[Instructions](#instructions)** to run 3D-Cardiomics on your local machine.
 
 To expression values are stored in:
 
