@@ -24,7 +24,7 @@ Assets/3DCardiomics_main.unity
 To expression values are stored in:
 
 ```
-Assets/Ressources?...
+Assets/Ressources/...
 ```
 
 You can simply add new files by navigating to the **Ressources** folder (blue box) and using left-click to choose **Import New Asset...*. 
@@ -42,5 +42,6 @@ If you run the application now by pressing the Start button, your expression val
 
 Please keep in mind, that in order to use your expression values, the data has to be in a specific format. Currently supported are only CSV files, either in .csv or .txt format. 
 Each row has to begin with the item's name and its intensity in the 18 locations. A sample file (fake_mouse_expression_values) is provided with a few randomised values to demonstrate the functionality.
+
 The application only supports visualisation of raw data [A] for intensity if they are within a range from -3 to 20. The application will disable the raw view if values outside the boundaries are detected (Normalized expressions can still be viewed).
 
