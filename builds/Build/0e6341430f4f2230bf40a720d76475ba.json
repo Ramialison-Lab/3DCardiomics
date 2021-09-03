@@ -1,0 +1,14 @@
+{
+"companyName": "Ramialison Lab, ARMI",
+"productName": "3D Cardiomics",
+"dataUrl": "87c34fdf2b2acdb683728b67ca1338be.unityweb",
+"wasmCodeUrl": "e96fa8a401ccdfd3622ca64c5cfcce93.unityweb",
+"wasmFrameworkUrl": "6d27f7af2b0ab90c6a4212749fdbeff6.unityweb",
+"wasmSymbolsUrl": "57cd1a64da956922d0eab91b132cf6c3.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#E4F4FC",
+"cacheControl": {"default": "must-revalidate"}
+}

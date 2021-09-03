@@ -184,7 +184,7 @@ public class Compare : MonoBehaviour
     System.Collections.IEnumerator requestContrasts()
     {
 
-        string url = "http://3d-cardiomics.erc.monash.edu/contrast/serve.php?m=" + pieceString;
+        string url = "https://3d-cardiomics.erc.monash.edu/contrast/serve.php?m=" + pieceString;
 
         Debug.Log(pieceString);
 
@@ -263,8 +263,9 @@ public class Compare : MonoBehaviour
             Debug.Log(values.Count);
 
 
-            csvUrl = "http://3d-cardiomics.erc.monash.edu/contrast/serve.php?m=" + pieceString + "&head=1";
+            csvUrl = "https://3d-cardiomics.erc.monash.edu/contrast/serve.php?m=" + pieceString + "&head=1";
 
+            Debug.Log(csvUrl);
             dlButton.SetActive(true);
             sortButton.SetActive(true);
 

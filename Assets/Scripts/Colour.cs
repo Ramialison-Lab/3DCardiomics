@@ -160,9 +160,9 @@ public class Colour : MonoBehaviour
     public void LoadDatasetFORWEBPLAYER()
     {
 #if USE_REAL_DATA
-        var csvFilenameBase = "log2PCM";
+        var csvFilenameBase = "log2CPM";
 #else
-        var csvFilenameBase = "log2PCM";
+       // var csvFilenameBase = "fake_mouse_expression_data";
 #endif
         TextAsset textAsset = Resources.Load(csvFilenameBase) as TextAsset; //string input =  result.text;
         string[] wArray = textAsset.text.Split("\n"[0]);
@@ -475,7 +475,6 @@ public class Colour : MonoBehaviour
         Debug.Log("Max: " + averageValues.Max().ToString());
         yield return null;
 #endif
-
         // apply average colours to model
         maxValue = averageValues.Max();
         var minValue = averageValues.Min();
@@ -612,6 +611,10 @@ public class Colour : MonoBehaviour
     // Colours a given heart piece based on the expression value
     public void colourHeartPiece(string heartPiece, float exp, float lMax, float lMin)
     {
+        if (exp > 20 || exp < -3)
+        {
+            normButton.gameObject.SetActive(false);
+        }
 
         // Declare variables
         float rgb = 255;
