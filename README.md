@@ -31,7 +31,7 @@ You can simply add new files by navigating to the **Ressources** folder (blue bo
 
 ![NewAsset](https://user-images.githubusercontent.com/79250095/131953413-d93d5426-935f-4c87-8614-84ab0a24f410.png)
 
-Search the file to upload on your local computer and select it. To set this file as expression values click on the **ScriptHolder* Object (red box) on the left side.
+Search the file to upload on your local computer and select it. To set this file as expression values click on the **ScriptHolder** Object (red box) on the left side.
 ![SH](https://user-images.githubusercontent.com/79250095/131953566-875f65eb-f81a-4569-8d65-17b17dd7f238.png)
 
 This will open the **Inspector** Tab on the right side. Enter the name of the file you just uploaded into the input field **Csv Filename Base** (red box). (Without file ending such as .txt or .csv).
