@@ -19,7 +19,7 @@ Assets/3DCardiomics_main.unity
 
 ### Upload expression values
 
-3D-cardiomics supports displaying of user provided expression values on your local machine. Therefore, first follow the **[Instructions](#instructions)** to run 3D-Cardiomics on your local machine.
+3D-cardiomics supports to render user provided expression values on our 3D-cardiomics model on your local machine. Therefore, please follow the **[Instructions](#instructions)** to run 3D-Cardiomics on your local machine.
 
 To expression values are stored in:
 
