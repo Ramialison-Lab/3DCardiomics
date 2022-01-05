@@ -10,7 +10,7 @@ public class Tooltip : MonoBehaviour
     private float absolute;
     private float lMin = 15;
     private float lMax = 0;
-
+    private bool tooltipActive = false;
 
     public static string[] hp = new string[18] {
         "A_1", "A_2", "A_3", "A_4",
@@ -22,15 +22,19 @@ public class Tooltip : MonoBehaviour
     private void Start()
     {
         selectionText = GameObject.Find("SelectionText").GetComponent<Text>();
+        
     }
 
     private void OnMouseEnter()
     {
-        findMin();
-        findMax();
-        float t = (absolute - lMin) / (lMax - lMin);
-        string s = "Expression value (log2CPM)= " + absolute.ToString("0.00") + "; \n Relative expression = " + t.ToString("0.00");
-        selectionText.text = s;
+        if (GameObject.Find("ScriptHolder").GetComponent<Tooltip>().getIsActive())
+        {
+            findMin();
+            findMax();
+            float t = (absolute - lMin) / (lMax - lMin);
+            string s = "Expression value (log2CPM)= " + absolute.ToString("0.00") + "; \n Relative expression = " + t.ToString("0.00");
+            selectionText.text = s;
+        }
     }
 
     private void OnMouseExit()
@@ -40,8 +44,6 @@ public class Tooltip : MonoBehaviour
 
     public void storeValues(string hp, float abs)
     {
-        // SH only
-        //float x = exp / Max;
         GameObject.Find(hp).GetComponent<Tooltip>().setValues(abs);
     }
 
@@ -87,6 +89,16 @@ public class Tooltip : MonoBehaviour
     {
         lMin = 15;
         lMax = 0;
+    }
+
+    public bool getIsActive()
+    {
+        return tooltipActive;
+    }
+
+    public void mouseHoverIsActive(bool state)
+    {
+        tooltipActive = state;
     }
 
 }

@@ -160,7 +160,7 @@ public class Colour : MonoBehaviour
     public void LoadDatasetFORWEBPLAYER()
     {
 #if USE_REAL_DATA
-        var csvFilenameBase = "log2CPM";
+        var csvFilenameBase = "y_cpm_batch_eff_rem_mean_mm";
 #else
        // var csvFilenameBase = "fake_mouse_expression_data";
 #endif
@@ -401,10 +401,10 @@ public class Colour : MonoBehaviour
 
             if (!expressionDataNameIndexMapping.ContainsKey(geneNameLower))
             {
-                // Debug.Log("WARNING: Gene name " + geneName + " not found in expression dataset.");
+                Debug.Log("WARNING: Gene name " + geneName + " not found in expression dataset.");
                 missingGenes.Add(geneName);
 #if UNITY_WEBGL
-                //JsAlert(geneName + " is not a valid gene name.");
+                JsAlert(geneName + " is not a valid gene name.");
 #endif
                 //return;
                 if (count % yield_every == 0) {
@@ -668,9 +668,12 @@ public class Colour : MonoBehaviour
         g.SetKeys(gck, new GradientAlphaKey[0]); // Make all colours visible
 
         // Associate a decimal with a colour and change the heart piece
-
-        GameObject.Find("ScriptHolder").GetComponent<Tooltip>().storeValues(heartPiece, exp);
         
+        GameObject.Find("ScriptHolder").GetComponent<Tooltip>().mouseHoverIsActive(true);
+        GameObject.Find("ScriptHolder").GetComponent<Tooltip>().storeValues(heartPiece, exp);
+      
+
+
         GameObject.Find(heartPiece).GetComponent<Renderer>().material.color = g.Evaluate(t);
     }
 
